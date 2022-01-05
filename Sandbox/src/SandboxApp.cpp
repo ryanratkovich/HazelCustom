@@ -3,18 +3,18 @@
 class Sandbox : public HazelCustom::Application
 {
 public:
-	Sandbox()
-	{
+    Sandbox()
+    {
 
-	}
+    }
 
-	~Sandbox()
-	{
+    ~Sandbox()
+    {
 
-	}
+    }
 };
 
 HazelCustom::Application* HazelCustom::CreateApplication()
 {
-	return new Sandbox();
+    return new Sandbox();
 }
