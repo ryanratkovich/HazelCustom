@@ -24,7 +24,10 @@ namespace HazelCustom
 
 	void Application::OnEvent(Event& e)
 	{
-		HCZ_CORE_INFO("{0}", e);
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+
+		HCZ_CORE_TRACE("{0}", e);
 	}
 
 	void Application::Run() 
@@ -35,5 +38,11 @@ namespace HazelCustom
 			glClear(GL_COLOR_BUFFER_BIT);
 			m_Window->OnUpdate();
 		}
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		m_Running - false;
+		return true;
 	}
 }
