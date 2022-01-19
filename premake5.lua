@@ -13,8 +13,14 @@ workspace "HazelCustom"
     -- Include directories relative to root folder (solution directory)
     IncludeDir = {}
     IncludeDir["GLFW"] = "HazelCustom/vendor/GLFW/include"
+    IncludeDir["Glad"] = "HazelCustom/vendor/Glad/include"
+    IncludeDir["ImGui"] = "HazelCustom/vendor/imgui"
 
     include "HazelCustom/vendor/GLFW"
+    include "HazelCustom/vendor/Glad"
+    include "HazelCustom/vendor/imgui"
+
+    startproject "Sandbox"
 
     project "HazelCustom"
         location "HazelCustom"
@@ -38,12 +44,16 @@ workspace "HazelCustom"
         {
         	"%{prj.name}/src",
             "%{prj.name}/vendor/spdlog/include",
-            "%{IncludeDir.GLFW}"
+            "%{IncludeDir.GLFW}",
+            "%{IncludeDir.Glad}",
+            "%{IncludeDir.ImGui}"
         }
 
         links
         {
             "GLFW",
+            "Glad",
+            "ImGui",
             "opengl32.lib"
         }
 
@@ -55,7 +65,8 @@ workspace "HazelCustom"
         defines
         {
             "HCZ_PLATFORM_WINDOWS",
-            "HCZ_BUILD_DLL"
+            "HCZ_BUILD_DLL",
+            "GLFW_INCLUDE_NONE"
         }
 
         postbuildcommands
@@ -65,14 +76,17 @@ workspace "HazelCustom"
 
         filter "configurations:Debug"
             defines "HCZ_DEBUG"
+            buildoptions "/MDd"
             symbols "On"
 
         filter "configurations:Release"
             defines "HCZ_RELEASE"
+            buildoptions "/MDd"
             optimize "On"
 
         filter "configurations:Dist"
             defines "HCZ_DIST"
+            buildoptions "/MDd"
             optimize "On"
 
     project "Sandbox"
@@ -112,12 +126,15 @@ workspace "HazelCustom"
 
         filter "configurations:Debug"
             defines "HCZ_DEBUG"
+            buildoptions "/MDd"
             symbols "On"
 
         filter "configurations:Release"
             defines "HCZ_RELEASE"
+            buildoptions "/MDd"
             optimize "On"
 
         filter "configurations:Dist"
             defines "HCZ_DIST"
+            buildoptions "/MDd"
             optimize "On"

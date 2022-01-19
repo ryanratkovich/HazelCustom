@@ -4,7 +4,10 @@
 
 #include <stdio.h>
 #include "HazelCustom/Application.h"
+#include "HazelCustom/Layer.h"
 #include "HazelCustom/Log.h"
+
+#include "HazelCustom/ImGui/ImGuiLayer.h"
 
 // ----Entry Point-----------------
 #include "HazelCustom/EntryPoint.h"

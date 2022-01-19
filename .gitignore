@@ -5,3 +5,9 @@ bin-int/
 
 # Files
 *.user
+*.bat
+
+# VS2019 Files
+*.sln
+*.vcxproj*
+HazelCustom/vendor/*
