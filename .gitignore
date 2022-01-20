@@ -10,4 +10,3 @@ bin-int/
 # VS2019 Files
 *.sln
 *.vcxproj*
-HazelCustom/vendor/*

@@ -39,6 +39,11 @@ namespace HazelCustom {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 
+		// void* because this doesnt have to be a GLFW window (Windows OS)
+		// we could be using some other windowing library for another platform
+		// which could be ANY type of window
+		virtual void* GetNativeWindow() const = 0;
+
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
 

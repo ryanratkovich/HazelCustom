@@ -10,6 +10,10 @@
 	#error HazelCustom only supports Windows
 #endif
 
+#ifdef HCZ_DEBUG
+	#define HCZ_ENABLE_ASSERTS
+#endif
+
 #ifdef HCZ_ENABLE_ASSERTS
 		#define HCZ_ASSERT(x, ...) { if(!(x)) { HCZ_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 		#define HCZ_CORE_ASSERT(x, ...) { if(!(x)) { HCZ_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }

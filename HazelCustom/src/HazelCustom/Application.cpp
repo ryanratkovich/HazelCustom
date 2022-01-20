@@ -6,6 +6,8 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
+
 namespace HazelCustom
 {
 
@@ -62,6 +64,10 @@ namespace HazelCustom
 			{
 				layer->OnUpdate();
 			}
+
+			auto [x, y] = Input::GetMousePosition();
+			HCZ_CORE_TRACE("{0}, {1}", x, y);
+
 			m_Window->OnUpdate();
 		}
 	}
