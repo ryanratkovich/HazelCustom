@@ -7,6 +7,10 @@
 #include "HazelCustom/Layer.h"
 #include "HazelCustom/Log.h"
 
+#include "HazelCustom/Input.h"
+#include "HazelCustom/MouseButtonCodes.h"
+#include "HazelCustom/KeyCodes.h"
+
 #include "HazelCustom/ImGui/ImGuiLayer.h"
 
 // ----Entry Point-----------------

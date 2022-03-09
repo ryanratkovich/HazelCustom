@@ -1,13 +1,17 @@
 #pragma once
 
 #ifdef HCZ_PLATFORM_WINDOWS
-	#ifdef HCZ_BUILD_DLL
-		#define HAZEL_CUSTOM_API __declspec(dllexport)
-	#else
-		#define HAZEL_CUSTOM_API __declspec(dllimport)
-	#endif
+#if HCZ_DYNAMIC_LINK
+		#ifdef HCZ_BUILD_DLL
+			#define HAZEL_CUSTOM_API __declspec(dllexport)
+		#else
+			#define HAZEL_CUSTOM_API __declspec(dllimport)
+		#endif
 #else
-	#error HazelCustom only supports Windows
+	#define HAZEL_CUSTOM_API
+#endif
+#else
+	#error Hazel only supports Windows!
 #endif
 
 #ifdef HCZ_DEBUG

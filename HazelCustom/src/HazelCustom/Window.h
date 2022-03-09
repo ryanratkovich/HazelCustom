@@ -22,7 +22,7 @@ namespace HazelCustom {
 	};
 
 	// Interface (i.e. all pure virtual methods, no data attributes) representing a desktop system based Window
-	class HAZEL_CUSTOM_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
